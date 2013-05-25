@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  FPF
 //
-//  Created by Vasco Ferreira on 5/24/13.
+//  Created by Vasco Ferreira on 5/23/13.
 //  Copyright (c) 2013 Armis. All rights reserved.
 //
 
@@ -12,6 +12,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.utils = [FPFUtils new];
+    
     // Override point for customization after application launch.
     return YES;
 }
@@ -41,6 +43,12 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(NSString*) getURLRestWebService{
+    
+    return @"http://www.armis.pt:8053/api/AccreditationSync";
+    
 }
 
 @end

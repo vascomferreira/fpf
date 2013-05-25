@@ -1,23 +1,114 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lNL-zc-jnF">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="twf-qD-snQ">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXg-rA-oQl">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButton:" destination="2" eventType="touchUpInside" id="wni-qR-1QV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8D-ZW-tJU">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Display">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="displayButton:" destination="2" eventType="touchUpInside" id="x9C-Vg-6wM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbT-vm-lpg">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButton:" destination="2" eventType="touchUpInside" id="yWI-tV-Hs3"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yXb-Ox-2DM">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LXg-rA-oQl" firstAttribute="top" secondItem="twf-qD-snQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0Qk-5Q-m95"/>
+                            <constraint firstItem="yXb-Ox-2DM" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="10R-vg-VWn"/>
+                            <constraint firstItem="AbT-vm-lpg" firstAttribute="leading" secondItem="v8D-ZW-tJU" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="2cH-SG-Zem"/>
+                            <constraint firstItem="v8D-ZW-tJU" firstAttribute="leading" secondItem="LXg-rA-oQl" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="570-MP-z6b"/>
+                            <constraint firstItem="AbT-vm-lpg" firstAttribute="baseline" secondItem="v8D-ZW-tJU" secondAttribute="baseline" type="default" id="8wq-sp-doC"/>
+                            <constraint firstItem="twf-qD-snQ" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="F7j-fA-AYL"/>
+                            <constraint firstAttribute="trailing" secondItem="twf-qD-snQ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="HPg-Xb-5LL"/>
+                            <constraint firstItem="yXb-Ox-2DM" firstAttribute="top" secondItem="LXg-rA-oQl" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="JcK-GA-2fu"/>
+                            <constraint firstItem="v8D-ZW-tJU" firstAttribute="baseline" secondItem="LXg-rA-oQl" secondAttribute="baseline" type="default" id="LI5-za-TxJ"/>
+                            <constraint firstItem="lNL-zc-jnF" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LqG-eS-tPI"/>
+                            <constraint firstItem="lNL-zc-jnF" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="amk-rd-gIE"/>
+                            <constraint firstItem="yXb-Ox-2DM" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="oQk-xn-d6y"/>
+                            <constraint firstItem="twf-qD-snQ" firstAttribute="top" secondItem="lNL-zc-jnF" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pXe-X3-BxN"/>
+                            <constraint firstAttribute="trailing" secondItem="lNL-zc-jnF" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="qAA-zR-8IZ"/>
+                            <constraint firstItem="LXg-rA-oQl" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rGT-BA-RH6"/>
+                            <constraint firstItem="yXb-Ox-2DM" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="yKg-On-Mhz"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ageField" destination="twf-qD-snQ" id="w7m-lx-KYa"/>
+                        <outlet property="myTableView" destination="yXb-Ox-2DM" id="gDH-Wk-VvV"/>
+                        <outlet property="nameField" destination="lNL-zc-jnF" id="7AN-5S-SFm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addButton:"/>
+                <relationship kind="action" name="deleteButton:"/>
+                <relationship kind="action" name="displayButton:"/>
+                <relationship kind="outlet" name="ageField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
