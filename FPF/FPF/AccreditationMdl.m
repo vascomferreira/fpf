@@ -20,7 +20,7 @@
     self.categoryDescription = [dictionary objectForKey:@"CategoryDescription"];
     self.entityTypeDescription = [dictionary objectForKey:@"EntityTypeDescription"];
     self.zonesList = [NSMutableArray new];
-    for(NSDictionary *innerDic in [dic objectForKey:@"ZonesList"]){
+    for(NSDictionary *innerDic in [dic objectForKey:@"Zones"]){
         [self.zonesList addObject: [[ZonesMdl alloc] initWithDictionary:innerDic]];
     }
     self.code = [UTILS getInt:[dictionary objectForKey:@"Code"]];

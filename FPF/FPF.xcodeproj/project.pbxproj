@@ -40,6 +40,7 @@
 		BC1BA3BC1750347C00CEDA08 /* GenericOut.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1BA3BB1750347C00CEDA08 /* GenericOut.m */; };
 		BC1BA3BF175034E700CEDA08 /* AccreditationsListOut.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1BA3BE175034E600CEDA08 /* AccreditationsListOut.m */; };
 		BC1BA3C2175039C200CEDA08 /* FPFServicesURLs.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1BA3C1175039C200CEDA08 /* FPFServicesURLs.m */; };
+		BC5535D0175058DE00BDC6B8 /* GenericBinaryOut.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5535CF175058DE00BDC6B8 /* GenericBinaryOut.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,8 @@
 		BC1BA3BE175034E600CEDA08 /* AccreditationsListOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccreditationsListOut.m; sourceTree = "<group>"; };
 		BC1BA3C0175039C100CEDA08 /* FPFServicesURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPFServicesURLs.h; sourceTree = "<group>"; };
 		BC1BA3C1175039C200CEDA08 /* FPFServicesURLs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPFServicesURLs.m; sourceTree = "<group>"; };
+		BC5535CE175058DE00BDC6B8 /* GenericBinaryOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericBinaryOut.h; sourceTree = "<group>"; };
+		BC5535CF175058DE00BDC6B8 /* GenericBinaryOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericBinaryOut.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +293,8 @@
 				BC1BA3A3175023D800CEDA08 /* GenericIn.m */,
 				BC1BA3BA1750347C00CEDA08 /* GenericOut.h */,
 				BC1BA3BB1750347C00CEDA08 /* GenericOut.m */,
+				BC5535CE175058DE00BDC6B8 /* GenericBinaryOut.h */,
+				BC5535CF175058DE00BDC6B8 /* GenericBinaryOut.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 				BC1BA3BC1750347C00CEDA08 /* GenericOut.m in Sources */,
 				BC1BA3BF175034E700CEDA08 /* AccreditationsListOut.m in Sources */,
 				BC1BA3C2175039C200CEDA08 /* FPFServicesURLs.m in Sources */,
+				BC5535D0175058DE00BDC6B8 /* GenericBinaryOut.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
