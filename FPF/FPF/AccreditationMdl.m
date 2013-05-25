@@ -20,13 +20,13 @@
     self.categoryDescription = [dictionary objectForKey:@"CategoryDescription"];
     self.entityTypeDescription = [dictionary objectForKey:@"EntityTypeDescription"];
     self.zonesList = [NSMutableArray new];
-    for(NSDictionary *innerDic in [dic objectForKey:@"Zones"]){
+    for(NSDictionary *innerDic in [dictionary objectForKey:@"Zones"]){
         [self.zonesList addObject: [[ZonesMdl alloc] initWithDictionary:innerDic]];
     }
-    self.code = [UTILS getInt:[dictionary objectForKey:@"Code"]];
-    self.numberOfPrints = [UTILS getInt:[dictionary objectForKey:@"numberOfPrints"]];
-    self.lastPrintDate = [UTILS getDate:[dictionary objectForKey:@"LastPrintDate"]];
-    self.deliveryDate = [UTILS getDate:[dictionary objectForKey:@"DeliveryDate"]];
+    self.code = [dictionary objectForKey:@"Code"];
+    self.numberOfPrints = [UTILS getInt:[dictionary objectForKey:@"NumberOfPrints"]];
+    self.lastPrintDate = [UTILS getDateTime:[dictionary objectForKey:@"LastPrintDate"]];
+    self.deliveryDate = [UTILS getDateTime:[dictionary objectForKey:@"DeliveryDate"]];
     self.isValid = [UTILS getBool:[dictionary objectForKey:@"IsValid"]];
     self.photoUrl = [dictionary objectForKey:@"PhotoUrl"];
     

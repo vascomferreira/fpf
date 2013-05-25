@@ -55,15 +55,21 @@
 -(NSDate*) getDateTime:(id)v{
     
     if(v==[NSNull null]) return nil;
-    dateFormatter.dateFormat = SERVICE_DATE_FORMAT;
-    //return [dateFormatter dateFromString:v];
-    return [dateFormatter dateFromString:v];
+    dateFormatter.dateFormat = SERVICE_FPF_DATE_FORMAT;
+    
+    NSDate *data = [dateFormatter dateFromString:v];
+    if (data==nil) {
+        dateFormatter.dateFormat = SERVICE_FPF_DATE_FORMAT_WITHOUT_MILI;
+        data = [dateFormatter dateFromString:v];
+    }
+    
+    return data;
     
 }
 -(NSDate*) getDate:(id)v{
     
     if(v==[NSNull null]) return nil;
-    dateFormatter.dateFormat = SERVICE_DATE_FORMAT;
+    dateFormatter.dateFormat = SERVICE_FPF_DATE_FORMAT;
     
     NSString* temp = [UTILS getTrimmedString:(NSString*)v];
     

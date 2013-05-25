@@ -32,7 +32,7 @@
 @property(nonatomic,readwrite) NSMutableArray *zonesList;
 
 //json:Code
-@property(nonatomic, readwrite) int code;
+@property(nonatomic, readwrite) NSString *code;
 
 //json:NumberOfPrints
 @property(nonatomic, readwrite) int numberOfPrints;
