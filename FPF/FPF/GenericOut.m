@@ -10,8 +10,7 @@
 
 @implementation GenericOut
 
-- (id)initWithJSON:(NSDictionary *)jsonInfo
-{
+- (id)initWithJSON:(NSDictionary *)jsonInfo {
     self = [super init];
     
     if (self) {
@@ -43,16 +42,16 @@
     
     
     
-    if ( [serverResponse.data isKindOfClass:[NSDictionary class]]   ) {
+    //if ( [serverResponse.data isKindOfClass:[NSDictionary class]]   ) {
         // resposta normal de json
         self = [self initWithJSON:(NSDictionary *)serverResponse.data];
-        
-    }
-    else {
-        // raw binary
-        self = [self initWithData:serverResponse.data];
-        
-    }
+    
+//    }
+//    else {
+//        // raw binary
+//        self = [self initWithData:serverResponse.data];
+//        
+//    }
     
     
     if ( self ) {
@@ -63,10 +62,13 @@
     return self;
     
 }
+
 -(BOOL) isValidServerResponse {
     
     return self.responseState == GMSSuccess;
     
 }
+
+
 
 @end
