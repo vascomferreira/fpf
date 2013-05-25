@@ -53,12 +53,12 @@
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
     
     NSDictionary* resultData;
-    if(data != nil && [[httpResponse.allHeaderFields objectForKey:@"Content-Type"] isEqualToString:@"application/json"]){
+    //if(data != nil && [[httpResponse.allHeaderFields objectForKey:@"Content-Type"] isEqualToString:@"application/json"]){
         resultData = [data objectFromJSONData];
-    }
+   // }
     
     if(httpResponse.statusCode == 200){     //OK
-        result.data =  data;
+        result.data =  resultData;
         result.msg = @"";
         result.state = GMSSuccess;
         return result;
