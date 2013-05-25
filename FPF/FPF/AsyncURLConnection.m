@@ -61,15 +61,57 @@
         
 		completeBlock = _completeBlock;
 		errorBlock = _errorBlock;
+		[APP_DELEGATE addToPendingConnections:self];
 		[self start];
 	}
     
 	return self;
 }
 
-
 -(NSString*) getURLRestWebService{
     return  [APP_DELEGATE getURLRestWebService];  //Producao
+}
+
+
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
+    return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+    
+    NSArray* trustedHosts = @[@"cq-mcdo.grupocgd.com", @"m.caixadirecta.cgd.pt", @"cq-app.caixadirecta.cgd.pt", @"app.caixadirecta.cgd.pt", @"www.cgd.pt", @"cq-static.cgd.pt" , @"static.cgd.pt"];
+    
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
+        if ([trustedHosts containsObject:challenge.protectionSpace.host])
+            [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+    
+    [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+}
+
+
+-(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    //NSLog(@"didReceiveResponse");
+	[receivedData setLength:0];
+    serviceResponse = response;
+    
+}
+
+-(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    //NSLog(@"didReceiveData");
+	[receivedData appendData:data];
+}
+
+-(void) connectionDidFinishLoading:(NSURLConnection *)connection{
+    //NSLog(@"connectionDidFinishLoading");
+    [APP_DELEGATE removeFromPendingConnections:self];
+    
+	completeBlock(receivedData, serviceResponse);
+}
+
+-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    //NSLog(@"didFailWithError");
+    [APP_DELEGATE removeFromPendingConnections:self];
+	errorBlock(error);
 }
 
 @end

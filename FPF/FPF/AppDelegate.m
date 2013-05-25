@@ -51,4 +51,30 @@
     
 }
 
+-(void)addToPendingConnections:(AsyncURLConnection *)conn{
+    
+    [pendingConnections addObject:conn];
+}
+
+-(void)removeFromPendingConnections:(AsyncURLConnection *)conn{
+    
+    [pendingConnections removeObject:conn];
+}
+
+-(void)cancelPendingConnections{
+    
+    // PRLOG(@"Cancelling connections" );
+    
+    NSMutableArray *connsToRemove = [NSMutableArray array];
+    
+    for(AsyncURLConnection *conn in pendingConnections){
+            
+            [conn cancel];
+            [connsToRemove addObject:conn];
+        
+    }
+    for(NSObject *x in connsToRemove) [pendingConnections removeObject:x];
+    
+}
+
 @end

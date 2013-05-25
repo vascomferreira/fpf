@@ -7,14 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AsyncURLConnection.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
-    
+        NSMutableArray *pendingConnections;
 }
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) FPFUtils* utils;
 
 -(NSString*) getURLRestWebService;
+
+-(void)addToPendingConnections:(AsyncURLConnection *)conn;
+-(void)removeFromPendingConnections:(AsyncURLConnection *)conn;
+-(void)cancelPendingConnections;
 
 @end

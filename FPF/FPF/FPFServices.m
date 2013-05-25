@@ -42,7 +42,7 @@
         NSLog(@"error: %@",error);
     }];
     
-    [conn cancel];
+    [APP_DELEGATE addToPendingConnections:conn];
 }
 
 +(GenericModel *) handleResponse:(NSURLResponse *)response withData:(NSData*)data{
@@ -192,6 +192,19 @@
 
 +(BOOL) handleState:(GenericModel *)model{
 
+    if(model.state == GMSLogout){
+        
+        [APP_DELEGATE cancelPendingConnections];
+
+        [UTILS performSelector:@selector(closePopup) withObject:nil afterDelay:10.0];
+        
+        return false;
+    }
+    else if(model.state == GMSVersionNotSupported){
+
+        return false;
+    }
+    
     return true;
 }
 
